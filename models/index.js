@@ -5,5 +5,14 @@ const Appointment = require("./appointment");
 Role.belongsTo(User, {});
 
 User.hasOne(Role, {
-  foreignKey: "userRole",
+  foreignKey: "roleId",
+});
+
+User.belongsToMany(Appointment, {});
+Appointment.hasOne(User, {
+  foreignKey: "requesterId",
+});
+
+Appointment.hasOne(User, {
+  foreignKey: "attendingId",
 });
