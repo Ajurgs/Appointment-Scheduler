@@ -1,0 +1,11 @@
+[
+  {
+    "roleName": "Customer"
+  },
+  {
+    "roleName": "Employee"
+  },
+  {
+    "roleName": "Manager"
+  }
+]
