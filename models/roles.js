@@ -24,3 +24,5 @@ Role.init(
     modelName: "roles",
   }
 );
+
+module.exports = Role;
