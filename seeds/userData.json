@@ -1,0 +1,30 @@
+[
+  {
+    "email": "admin@admin.com",
+    "password": "test1234",
+    "address": "123 NotARoad ln",
+    "phoneNumber": "303-555-5555",
+    "roleId": 3
+  },
+  {
+    "email": "JaneDoe@customer.com",
+    "password": "password",
+    "address": "4458 Nowhere Dr",
+    "phoneNumber": "303-555-5555",
+    "roleId": 1
+  },
+  {
+    "email": "JimGordon@gotham.com",
+    "password": "TestPass",
+    "address": "1474 Gotham st",
+    "phoneNumber": "303-555-5555",
+    "roleId": 1
+  },
+  {
+    "email": "MikeSmith@fixer.com",
+    "password": "Password",
+    "address": "555 Test Cr",
+    "phoneNumber": "303-555-5555",
+    "roleId": 2
+  }
+]

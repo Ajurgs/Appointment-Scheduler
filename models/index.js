@@ -2,17 +2,22 @@ const User = require("./users");
 const Role = require("./roles");
 const Appointment = require("./appointment");
 
-Role.belongsTo(User, {});
+User.belongsTo(Role, {});
 
-User.hasOne(Role, {
+Role.hasOne(User, {
   foreignKey: "roleId",
+  onDelete: "SET NULL",
 });
 
-User.belongsToMany(Appointment, {});
-Appointment.hasOne(User, {
+//Appointment.belongsTo(User, {});
+User.hasOne(Appointment, {
   foreignKey: "requesterId",
+  onDelete: "CASCADE",
 });
 
-Appointment.hasOne(User, {
+User.hasOne(Appointment, {
   foreignKey: "attendingId",
+  onDelete: "CASCADE",
 });
+
+module.exports = { User, Role, Appointment };
