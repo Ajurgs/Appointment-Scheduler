@@ -1,13 +1,17 @@
 const router = require("express").Router();
-
 const withAuth = require("../utils/auth");
 const { User, Role, Appointment } = require("../models");
 const calendar = require("fullcalendar-scheduler");
 
 // localhost:3001/
 router.get("/", async (req, res) => {
-  try {
-    res.render("calendar");
+  try { 
+
+   res.render('calendar', {
+    // Pass the logged in flag to the template
+    loggedIn: req.session.loggedIn,
+  });
+
   } catch (err) {
     res.status(500).json(err);
   }
