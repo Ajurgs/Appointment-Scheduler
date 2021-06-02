@@ -2,13 +2,39 @@
   src="https://cdn.jsdelivr.net/npm/fullcalendar@5.7.0/main.min.js"
 ></script>
 <script>
+const appointmentsTest = [
+    {
+      title  : 'event1',
+      start  : '2021-06-02T14:30:00',
+      end    : '2021-06-02T15:30:00',
+      allDay: false
+    },
+    {
+      title  : 'event2',
+      start  : '2021-06-02T10:30:00',
+      end    : '2021-06-02T11:30:00',
+      allDay: false
+    },
+    {
+      title  : 'event3',
+      start  : '2010-06-09T12:30:00',
+      end    : '2021-06-02T13:30:00',
+      allDay : false // will make the time show
+    }
+  ];
 
   document.addEventListener('DOMContentLoaded', function() { var calendarEl =
-  document.getElementById('calendar'); var calendar = new
-  FullCalendar.Calendar(calendarEl, { timeZone: 'UTC', initialView:
-  'resourceTimeGridDay', resources: [{ id: 'a' , title: 'location a' }, { id:
-  'b', title: 'Room B'}, { id: 'c', title: 'Room C' }, { id: 'd', title: 'Room D' } ], events:
-  'https://fullcalendar.io/demo-events.json?with-resources=4&single-day'});
+  document.getElementById('calendar'); 
+  var calendar = new FullCalendar.Calendar(calendarEl, { 
+    schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source',
+    // plugins: [ 'interaction'], 
+    eventClick: function (info) {
+      console.log(info);
+    }, 
+    timeZone: 'UTC', 
+    initialView: 'timeGridWeek',
+    events: appointmentsTest
+  });
   calendar.render(); });
 
 </script>
