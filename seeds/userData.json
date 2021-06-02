@@ -2,6 +2,8 @@
   {
     "email": "admin@admin.com",
     "password": "test1234",
+    "firstName": "Mike",
+    "lastName": "Tyson",
     "address": "123 NotARoad ln",
     "phoneNumber": "303-555-5555",
     "roleId": 3
@@ -9,6 +11,8 @@
   {
     "email": "JaneDoe@customer.com",
     "password": "password",
+    "firstName": "Jean",
+    "lastName": "ValJean",
     "address": "4458 Nowhere Dr",
     "phoneNumber": "303-555-5555",
     "roleId": 1
@@ -16,6 +20,8 @@
   {
     "email": "JimGordon@gotham.com",
     "password": "TestPass",
+    "firstName": "Jane",
+    "lastName": "Doe",
     "address": "1474 Gotham st",
     "phoneNumber": "303-555-5555",
     "roleId": 1
@@ -23,6 +29,8 @@
   {
     "email": "MikeSmith@fixer.com",
     "password": "Password",
+    "firstName": "Henry",
+    "lastName": "Ford",
     "address": "555 Test Cr",
     "phoneNumber": "303-555-5555",
     "roleId": 2
