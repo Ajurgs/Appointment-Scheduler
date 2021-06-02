@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const withAuth = require("../utils/auth");
 
 router.get("/account", withAuth, async (req, res) => {
   // send to user accounts
