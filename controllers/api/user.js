@@ -18,11 +18,9 @@ router.get("/:id", async (req, res) => {
       include: [{ model: Role }],
     });
     if (!userData) {
-      res
-        .status(404)
-        .json({
-          message: "The User you were attempting to locate was not found.",
-        });
+      res.status(404).json({
+        message: "The User you were attempting to locate was not found.",
+      });
       return;
     }
     res.status(200).json(userData);
@@ -30,14 +28,53 @@ router.get("/:id", async (req, res) => {
     res.status(500).json(err);
   }
 });
-
+// create user
 router.post("/", async (req, res) => {
   try {
     const userData = await User.create(req.body);
-    res.status(200).json(userData);
+    req.session.save(() => {
+      req.session.userId = userData.id;
+      req.session.role = userData.role;
+      req.session.loggedIn = true;
+
+      res.status(200).json({
+        user: userData,
+        message: "You are now Logged in",
+      });
+    });
   } catch (err) {
     res.status(400).json(err);
   }
+});
+
+router.post("/login", async (req, res) => {
+  try {
+    const userData = await User.findOne({
+      where: {
+        email: req.body.email,
+      },
+    });
+    if (!userData) {
+      res.status(400).json("Incorrect Email or Password. Please Try Again");
+      return;
+    }
+    const validPassword = userData.checkPassword(req.body.checkPassword);
+    if (!validPassword) {
+      res.status(400).json("Incorrect Email or Password. Please Try Again");
+      return;
+    }
+
+    req.session.save(() => {
+      req.session.userId = userData.id;
+      req.session.role = userData.role;
+      req.session.loggedIn = true;
+
+      res.status(200).json({
+        user: userData,
+        message: "You are now Logged in",
+      });
+    });
+  } catch (err) {}
 });
 
 router.put("/:id", async (req, res) => {
@@ -65,11 +102,9 @@ router.delete("/:id", async (req, res) => {
       },
     });
     if (!userData) {
-      res
-        .status(404)
-        .json({
-          message: "The User you were attempting to delete was not found.",
-        });
+      res.status(404).json({
+        message: "The User you were attempting to delete was not found.",
+      });
       return;
     }
 
