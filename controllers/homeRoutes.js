@@ -1,5 +1,19 @@
 const router = require("express").Router();
+
 const withAuth = require("../utils/auth");
+const { User, Role, Appointment } = require("../models");
+const calendar = require("fullcalendar-scheduler");
+
+// localhost:3001/
+router.get("/", async (req, res) => {
+  try {
+    res.render("calendar");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
 
 router.get("/account", withAuth, async (req, res) => {
   // send to user accounts
