@@ -58,7 +58,7 @@ router.post("/login", async (req, res) => {
       res.status(400).json("Incorrect Email or Password. Please Try Again");
       return;
     }
-    const validPassword = userData.checkPassword(req.body.checkPassword);
+    const validPassword = await userData.checkPassword(req.body.password);
     if (!validPassword) {
       res.status(400).json("Incorrect Email or Password. Please Try Again");
       return;
@@ -76,6 +76,16 @@ router.post("/login", async (req, res) => {
     });
   } catch (err) {}
 });
+
+router.post("/logout", async (req,res)=>{
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
+})
 
 router.put("/:id", async (req, res) => {
   try {
