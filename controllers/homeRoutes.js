@@ -17,6 +17,23 @@ router.get("/", async (req, res) => {
 
 router.get("/account", withAuth, async (req, res) => {
   // send to user accounts
+  switch(req.session.role){
+    case 1:{
+      res.render("customerAccount");
+      break;
+    }
+    case 2:{
+      res.render("employeeAccount");
+      break;
+    }
+    case 3:{
+      res.render("managerAccount");
+      break;
+    }
+    default:{
+      break;
+    }
+  }
 });
 
 router.get("/login", (req, res) => {
