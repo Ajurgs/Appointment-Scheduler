@@ -5,19 +5,15 @@ const calendar = require("fullcalendar-scheduler");
 
 // localhost:3001/
 router.get("/", async (req, res) => {
-  try { 
-
-   res.render('calendar', {
-    // Pass the logged in flag to the template
-    loggedIn: req.session.loggedIn,
-  });
-
+  try {
+    res.render("homepage", {
+      // Pass the logged in flag to the template
+      loggedIn: req.session.loggedIn,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
 });
-
-
 
 router.get("/account", withAuth, async (req, res) => {
   // send to user accounts
