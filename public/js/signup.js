@@ -1,5 +1,3 @@
-// const { Json } = require("../../node_modules/sequelize/types/lib/utils");
-
 
 const signupFormHandler = async (event) => {
   event.preventDefault();
@@ -24,7 +22,7 @@ const signupFormHandler = async (event) => {
       const firstName = document.querySelector("#firstName").value.trim();
       const lastName = document.querySelector("#lastName").value.trim();
       if (email && password) {
-        const response = await fetch("/api/users/", {
+        const response = await fetch("/api/user/", {
           method: "POST",
           body: JSON.stringify({ email, password, firstName, lastName }),
           headers: { "Content-Type": "application/json" },
