@@ -19,7 +19,8 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     const appointmentData = await Appointment.findByPk(req.params.id, {
-      include: [{ model: User }],
+      include:[{model:User, as:"requester", attributes: ["firstName","lastName","roleId"], include:[Role]},{model:User, as:"attending",attributes: ["firstName","lastName","roleId"], include:[Role] }],
+      attributes: {exclude:["requesterId","attendingId"]}
     });
     if (!appointmentData) {
       res.status(404).json({ message: "The ID supplied does not exist." });
