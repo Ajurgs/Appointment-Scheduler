@@ -31,7 +31,7 @@ const formattedData = [];
      await temp.json().then(data =>{
     console.log(data);
     data.map(event =>{
-      formattedData.push({title:"test Title",start:event.start,end:event.end})
+      formattedData.push({id:event.id,title:"test Title",start:event.start,end:event.end})
       document.dispatchEvent(loadDataEvent);
     })
   });
