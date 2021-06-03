@@ -28,6 +28,7 @@ router.get("/:id", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 // create user
 router.post("/", async (req, res) => {
   try {
@@ -114,4 +115,23 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
+// get users by email localhost:3001/user/:email
+router.get("/email/:email", async (req, res) => {
+  console.log(req.params.email);
+  try {
+    const userData = await User.findOne( {
+      where: { email: req.params.email},
+    });
+    
+    if (!userData) {
+      res.status(404).json({
+        message: "The User you were attempting to locate was not found.",
+      });
+      return;
+    }
+    res.status(200).json(userData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 module.exports = router;
