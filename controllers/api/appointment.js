@@ -1,12 +1,15 @@
 const router = require("express").Router();
-const { Appointment, User } = require("../../models");
+const { Appointment, User, Role } = require("../../models");
 
-// The `/api/categories` endpoint
+// The `/api/appointments` endpoint
 
 router.get("/", async (req, res) => {
-  // find all categories
+  // find all appointments
   try {
-    const appointmentData = await Appointment.findAll();
+    const appointmentData = await Appointment.findAll({
+      include:[{model:User, as:"requester", attributes: ["firstName","lastName","roleId"], include:[Role]},{model:User, as:"attending",attributes: ["firstName","lastName","roleId"], include:[Role] }],
+      attributes: {exclude:["requesterId","attendingId"]}
+    });
     res.status(200).json(appointmentData);
   } catch (err) {
     res.status(500).json(err);

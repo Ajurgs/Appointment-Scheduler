@@ -9,7 +9,14 @@ Role.hasOne(User, {
   onDelete: "SET NULL",
 });
 
-//Appointment.belongsTo(User, {});
+Appointment.belongsTo(User, {
+  as: "requester",
+  foreignKey: "requesterId",
+});
+Appointment.belongsTo(User, {
+  as: "attending",
+  foreignKey: "attendingId",
+});
 User.hasOne(Appointment, {
   foreignKey: "requesterId",
   onDelete: "CASCADE",
