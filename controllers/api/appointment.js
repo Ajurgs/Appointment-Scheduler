@@ -42,10 +42,6 @@ router.get("/attending/:id",async (req,res)=>{
       include:[{model:User, as:"requester", attributes: ["firstName","lastName","roleId"], include:[Role]},{model:User, as:"attending",attributes: ["firstName","lastName","roleId"], include:[Role] }],
       attributes: {exclude:["requesterId","attendingId"]}
     })
-    if (!appointmentData) {
-      res.status(404).json({ message: "The ID supplied does not exist" });
-      return;
-    }
     res.status(200).json(appointmentData);
   }
   catch (err){
@@ -53,6 +49,21 @@ router.get("/attending/:id",async (req,res)=>{
   }
 })
 
+router.get("/requester/:id",async (req,res) =>{
+  try{
+    const appointmentData = await Appointment.findAll({
+      where:{
+        requesterId: req.params.id,
+      },
+      include:[{model:User, as:"requester", attributes: ["firstName","lastName","roleId"], include:[Role]},{model:User, as:"attending",attributes: ["firstName","lastName","roleId"], include:[Role] }],
+      attributes: {exclude:["requesterId","attendingId"]}
+    })
+    res.status(200).json(appointmentData);
+  }
+  catch (err){
+    res.status(500).json(err);
+  }
+})
 router.post("/", async (req, res) => {
   try {
     const appointmentData = await Appointment.create(req.body);
