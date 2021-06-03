@@ -6,9 +6,7 @@ const { Appointment, User } = require("../../models");
 router.get("/", async (req, res) => {
   // find all categories
   try {
-    const appointmentData = await Appointment.findAll({
-      include: [{ model: User }],
-    });
+    const appointmentData = await Appointment.findAll();
     res.status(200).json(appointmentData);
   } catch (err) {
     res.status(500).json(err);

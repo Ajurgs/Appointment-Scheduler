@@ -11,14 +11,24 @@ Appointment.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    dateTime: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
     location: {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    start:{
+      type: DataTypes.DATE,
+      allowNull: false,
+      validate:{
+        isDate: true,
+      }
+    },
+    end:{
+      type: DataTypes.DATE,
+      allowNull: false,
+      validate:{
+        isDate: true,
+      }
+    }
   },
   {
     sequelize,
