@@ -1,17 +1,23 @@
-const { Json } = require("sequelize/types/lib/utils");
+// const { Json } = require("../../node_modules/sequelize/types/lib/utils");
 
-const signup = async (event) => {
+
+const signupFormHandler = async (event) => {
   event.preventDefault();
+
   const password = document.querySelector("#password-signup").value.trim();
-  const passwordConfirm = document
-    .querySelector("#password-confirm")
-    .value.trim();
+  console.log("Password: " + password);
+  
+
+  const passwordConfirm = document.querySelector('#passConfirm').value.trim();
+  console.log("Password Confirm: " + passwordConfirm);
 
   // if the passwords match
   if (password === passwordConfirm) {
     if (password.length < 8) {
       alert("Password needs to be at least 8 characters in length");
     } else {
+
+
       // create the user
       const email = document.querySelector("#email-signup").value.trim();
 
@@ -23,6 +29,7 @@ const signup = async (event) => {
           body: JSON.stringify({ email, password, firstName, lastName }),
           headers: { "Content-Type": "application/json" },
         });
+        document.location.replace("/");
       } else {
         alert("failed to sign up");
       }
@@ -31,3 +38,7 @@ const signup = async (event) => {
     alert("Passwords don't match");
   }
 };
+
+document
+  .querySelector('#signup-form')
+  .addEventListener('submit', signupFormHandler);
