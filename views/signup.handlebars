@@ -3,38 +3,44 @@
     <div class="card-header">
       <h2>Sign Up</h2>
     </div>
-    <form
-      id="login-form"
-      class="card-body d-flex flex-column align-items-center"
-    >
+    <form id="signup-form"class="card-body d-flex flex-column ">
       <div class="d-flex mb-3">
-        <label for="firstName" style="width: 100;">First Name:</label>
-        <input name="firstName" type="password" id="firstName" />
+        <fieldset class="d-flex flex-column">
+        <label for="firstName" style="width: 100">First Name:</label>
+        <input name="firstName" type="text" id="firstName"/>
+        </fieldset>
       </div>
       <div class="d-flex mb-3">
-        <label for="lastName" style="width: 100;">Last Name:</label>
-        <input name="lastName" type="password" id="lastName" />
-      </div>
-      <div class="d-flex mt-3">
-        <label for="email-signup" style="width: 100;">Email:</label>
-        <input name="email-signup" type="text" id="email-input" />
+        <fieldset class="d-flex flex-column">
+        <label for="lastName" style="width: 100">Last Name:</label>
+        <input name="lastName" type="text" id="lastName" />
+        </fieldset>
       </div>
       <div class="d-flex mb-3">
-        <label for="password-signup" style="width: 100;">Password:</label>
-        <input name="password-signup" type="password" id="password-input" />
+        <fieldset class="d-flex flex-column">
+        <label for="email-signup" style="width: 100">Email:</label>
+        <input name="email-signup" type="email" id="email-signup" />
+        </fieldset>
       </div>
       <div class="d-flex mb-3">
-        <label for="password-confirm" style="width: 100;">Password Confirm:</label>
-        <input name="password-confirm" type="password" id="password-comfirm" />
+        <fieldset class="d-flex flex-column" >
+        <label for="password-signup" style="width: 100">Password:</label>
+        <input id="password-signup" type="password"  />
+        </fieldset>
+      </div>
+      <div class="d-flex mb-3">
+        <fieldset class="d-flex flex-column" >
+        <label for="passConfirm" style="width: 100">Password Confirm:</label>
+        <input id="passConfirm" type="password"  />
+        </fieldset>
       </div>
       <div>
         <button
           type="submit"
-          id="login-btn"
+          id="signup-btn"
           class="btn btn-primary my-3"
-        >Login</button>
+        >Create account</button>
       </div>
-
     </form>
   </section>
 </div>
