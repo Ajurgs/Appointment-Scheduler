@@ -24,7 +24,7 @@ router.get("/account", withAuth, async (req, res) => {
   })
   const user = userData.get({plain:true});
   console.log(user);
-  // Send to user accounts
+  // Send to user accounts to specify role
   switch(user.role.id){
     case 1:{
       res.render("customerAccount",{
@@ -56,6 +56,7 @@ router.get("/account", withAuth, async (req, res) => {
   }
 });
 
+// Require session login
 router.get("/login", (req, res) => {
   try {
     res.render("login",{
@@ -66,6 +67,7 @@ router.get("/login", (req, res) => {
   }
 });
 
+// Sign up for account
 router.get("/signup", (req, res) => {
   try {
     res.render("signup",{
@@ -75,4 +77,6 @@ router.get("/signup", (req, res) => {
     res.status(500).json(err);
   }
 });
+
+// Export session information
 module.exports = router;
