@@ -1,1 +1,24 @@
-<h1>Customer</h1>
+<script src="/js/employeeCalendar.js"></script>
+<input type='hidden' id='userId' name='userId' value='{{user.id}}'/>
+<div class="container">
+  <div class="row my-5">
+      <div class="col">
+        <div class="card border-primary mb-3" style="max-width: 20rem;">
+            <div class="card-header">{{user.firstName}} {{user.lastName}}</div>
+                <div class="card-body">
+                    <h4 class="card-title">Position: {{user.role.roleName}}</h4>
+                    <h4 class="card-title">Phone: {{user.phoneNumber}}</h4>
+                    <h4 class="card-title">Address: {{user.address}}</h4>
+
+                </div>
+
+        </div>
+            <div>
+                <button type="submit" id="update-profile-btn" class="btn btn-primary my-3">Update account information</button>
+                <button type="submit" id="request-appt-btn" class="btn btn-primary my-3">Request new appointment</button>
+            </div>
+      </div>
+        <div class="col" id="calendar"></div>
+    </div>
+</div>
+<script src="/js/customerAccount.js"></script>
