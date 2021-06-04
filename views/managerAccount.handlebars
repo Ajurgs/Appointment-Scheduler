@@ -1,15 +1,23 @@
-<script src="/js/managerCalendar.js"></script>
-
+<input type='hidden' id='userId' name='userId' value='{{user.id}}'/>
 <div class="container">
-    <div class="row">
-        <div class="col">
-            <div class="row">
-                <div class="col"></div>
-                <div class="col"></div>
-            </div>
+  <div class="row my-5">
+      <div class="col">
+        <div class="card border-primary mb-3" style="max-width: 20rem;">
+            <div class="card-header">{{user.firstName}} {{user.lastName}}</div>
+                <div class="card-body">
+                    <h4 class="card-title">Position: {{user.role.roleName}}</h4>
+                    <h4 class="card-title">Phone: {{user.phoneNumber}}</h4>
+                    <h4 class="card-title">Address: {{user.address}}</h4>
+
+                </div>
+
         </div>
+            <div>
+                <a href="/update" class="btn btn-primary my-3">Update account information</a>
+                <a href="/updateUser" class="btn btn-primary my-3">Update user</a>
+            </div>
+      </div>
+      <script src="/js/managerCalendar.js"></script>
         <div class="col" id="calendar"></div>
     </div>
 </div>
-
-
