@@ -16,7 +16,8 @@ async function getAppointments(){
         center: 'title',
         left: 'timeGridDay listWeek dayGridMonth'}, 
       eventClick: function (info) {
-        console.log(info.event._def.publicId);
+        let id = info.event._def.publicId;
+        document.location.replace(`/test/${id}`);
       }, 
       timeZone: 'local', 
       initialView: 'dayGridMonth',

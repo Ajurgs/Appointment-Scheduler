@@ -15,12 +15,10 @@ router.get("/profile", withAuth,(req, res) => {
     }
   });
 
-router.get("/appointment/:id"), withAuth,(req,res) =>{
+router.get("/appointment/:id"), withAuth, async (req,res) =>{
+  console.log("can we get here?");
   try{
-    const appointmentData = await Appointment.findByPk(req.params.id, {
-      include:[{model:User, as:"requester", attributes: ["firstName","lastName","roleId"], include:[Role]},{model:User, as:"attending",attributes: ["firstName","lastName","roleId"], include:[Role] }],
-      attributes: {exclude:["requesterId","attendingId"]}
-    });
+    const appointmentData = await Appointment.findByPk(req.params.id);
     if (!appointmentData) {
       res.status(404).json({ message: "The ID supplied does not exist." });
       return;

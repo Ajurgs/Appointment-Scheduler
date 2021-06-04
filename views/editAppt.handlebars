@@ -1,0 +1,39 @@
+<div class="container">
+  <section class="card my-3" style="max-width:800px">
+    <div class="card-header">
+      <h2>Update Appointment</h2>
+    </div>
+    <form id="profile-form" class="card-body d-flex flex-column align-items-center">
+      <input type='hidden' name='apptId' id='id' value={{appointment.id}} />  
+      <div class="d-flex mb-3" >
+        <fieldset class="d-flex flex-column" >
+        <label for="firstName" >Title:</label>
+        <input name="firstName" type="text" id="title" value="{{appointment.title}}" />
+        </fieldset>
+      </div>
+      <div class="d-flex mb-3">
+        <fieldset class="d-flex flex-column">
+        <label for="location" >Location:</label>
+        <input name="location" type="text" id="location" value={{appointment.location}}></input>
+        </fieldset>
+      </div>
+      <div class="d-flex mb-3">
+        <fieldset class="d-flex flex-column">
+        <label for="Employee">Attending Employee:</label>
+        <select name="Employee" id="employee">
+            {{#each employees as |employee|}}
+            <option value={{employee.id}}>{{employee.firstName}} {{employee.lastName}}</option>
+            {{/each}}
+        </select>
+        </fieldset>
+      </div>
+      <div>
+        <button
+          type="submit"
+          id="update-profile-btn"
+      class="btn btn-primary my-3"
+        >Update Appointment</button>
+      </div>
+    </form>
+  </section>
+</div>

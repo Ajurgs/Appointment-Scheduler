@@ -117,6 +117,40 @@ router.get("/updateUser",withAuth, async (req,res)=>{
     res.status(500).json(err);
   }
 })
+
+
+router.get("/appointment/:id", async (req,res) =>{
+  console.log(req.params.id);
+  try{
+    const appointmentData = await Appointment.findByPk(req.params.id);
+    if(!appointmentData){
+      res.status(404).json({message:"The Id supplied does not exist"});
+    }
+    const appointment = appointmentData.get({plain:true});
+    console.log(appointment);
+    const employeeData = await User.findAll({
+      where:{
+        roleId:2,
+      }
+    })
+    if(!employeeData){
+      res.status(404).json({message:"No Employees found"});
+    }
+    console.log(employeeData);
+    const employees = employeeData.map(entry =>entry.get({plain:true}));
+    console.log(employees);
+    res.render("editAppt",{
+      appointment,
+      employees,
+      loggedIn:req.session.loggedIn,
+    });
+  }
+  catch (err){
+    console.log(err);
+    res.status(500).json(err);
+  }
+})
+
 // Export session information
 
 module.exports = router;
