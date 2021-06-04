@@ -91,6 +91,16 @@ router.get("/update",withAuth, async (req,res)=>{
   }
 })
 
+router.get("/createappt",withAuth, async (req,res) =>{
+  try {
+    res.render("createAppt",{
+      id:req.session.userId,
+      loggedIn: req.session.loggedIn,
+    })
+  } catch (err) {
+    res.status(500).json(err);
+  }
+})
 
 
 module.exports = router;

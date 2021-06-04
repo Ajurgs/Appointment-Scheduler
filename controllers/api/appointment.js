@@ -69,7 +69,7 @@ router.post("/", async (req, res) => {
     const appointmentData = await Appointment.create(req.body);
     res.status(200).json(appointmentData);
   } catch (err) {
-    res.status(400).json(err);
+    res.status(500).json(err);
   }
 });
 
