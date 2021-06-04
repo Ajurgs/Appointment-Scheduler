@@ -4,3 +4,21 @@
   color: black;
   margin-left: 50%;
 }
+
+.fc .fc-cell-shaded .fc .fc-day-disabled {
+  background: #515960;
+  background-color: #515960;
+}
+
+.fc-theme-standard .fc-list-day-cushion {
+  background: #515960;
+  background-color: #515960;
+}
+
+.fc .fc-daygrid-day.fc-day-today {
+  background-color: rgba(140, 155, 224, 0.842);
+}
+
+.fc-timegrid-slot.fc-timegrid-slot-lane {
+  background-color: rgba(98, 109, 158, 0.842);
+}
