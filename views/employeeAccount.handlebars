@@ -1,1 +1,18 @@
-<h1>employee</h1>
+<script src="/js/employeeCalendar.js"></script>
+<input type='hidden' id='userId' name='userId' value='{{user.id}}'/>
+<div class="container">
+  <div class="row my-5">
+      <div class="col">
+        <div class="card border-primary mb-3" style="max-width: 20rem;">
+                        <div class="card-header">{{user.firstName}} {{user.lastName}}</div>
+                            <div class="card-body">
+                                <h4 class="card-title">Position: {{user.role.roleName}}</h4>
+                                <h4 class="card-title">Phone: {{user.phoneNumber}}</h4>
+                                <h4 class="card-title">Address: {{user.address}}</h4>
+
+                            </div>
+        </div>
+      </div>
+        <div class="col" id="calendar"></div>
+    </div>
+</div>
