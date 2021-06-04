@@ -51,7 +51,9 @@ User.init(
     hooks: {
       beforeCreate: async (newUserData) => {
         newUserData.password = await bcrypt.hash(newUserData.password, 10);
-        newUserData.roleId = "1";
+        if(!newUserData.roleId){
+          newUserData.roleId = 1;
+        }
         return newUserData;
       },
       beforeUpdate: async (updateUserData) => {
