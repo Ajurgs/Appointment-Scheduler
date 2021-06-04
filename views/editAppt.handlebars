@@ -1,7 +1,9 @@
 <div class="container">
   <section class="card my-3" style="max-width:800px">
-    <div class="card-header">
+    <div class="card-header d-flex justify-content-between">
       <h2>Update Appointment</h2>
+      
+      <h2><a href="/account" style="text-decoration: none;">X</a></h2>
     </div>
     <form id="appointment-form" class="card-body d-flex flex-column align-items-center">
       <input type='hidden' name='apptId' id='id' value={{appointment.id}} />  
@@ -24,8 +26,12 @@
             <option value="">Select Employee to Attend</option>
             {{#each employees as |employee|}}
             <option value={{employee.id}}>{{employee.firstName}} {{employee.lastName}}</option>
+            
             {{/each}}
         </select>
+        {{#if appointment.attending}}
+        <label >Currently Attending Employee: {{appointment.attending.firstName}} {{appointment.attending.lastName}}</label>
+        {{/if}}
         </fieldset>
       </div>
       <div>
