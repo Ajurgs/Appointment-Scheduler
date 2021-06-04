@@ -136,9 +136,7 @@ router.get("/appointment/:id", async (req,res) =>{
     if(!employeeData){
       res.status(404).json({message:"No Employees found"});
     }
-    console.log(employeeData);
     const employees = employeeData.map(entry =>entry.get({plain:true}));
-    console.log(employees);
     res.render("editAppt",{
       appointment,
       employees,

@@ -34,5 +34,14 @@
     "address": "555 Test Cr",
     "phoneNumber": "303-555-5555",
     "roleId": 2
+  },
+  {
+    "email": "Nicola@Tesla.com",
+    "password": "Password",
+    "firstName": "Nicola",
+    "lastName": "Tesla",
+    "address": "313 AC rd",
+    "phoneNumber": "303-555-5555",
+    "roleId": 2
   }
 ]

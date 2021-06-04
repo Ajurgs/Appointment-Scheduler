@@ -14,13 +14,14 @@
       <div class="d-flex mb-3">
         <fieldset class="d-flex flex-column">
         <label for="location" >Location:</label>
-        <input name="location" type="text" id="location" value={{appointment.location}}></input>
+        <input name="location" type="text" id="location" value="{{appointment.location}}"></input>
         </fieldset>
       </div>
       <div class="d-flex mb-3">
         <fieldset class="d-flex flex-column">
         <label for="Employee">Attending Employee:</label>
         <select name="Employee" id="employee">
+            <option value="">Select Employee to Attend</option>
             {{#each employees as |employee|}}
             <option value={{employee.id}}>{{employee.firstName}} {{employee.lastName}}</option>
             {{/each}}

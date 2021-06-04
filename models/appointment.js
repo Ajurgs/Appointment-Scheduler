@@ -13,6 +13,9 @@ Appointment.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    title:{
+      type: DataTypes.STRING,
+    },
     location: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -33,6 +36,14 @@ Appointment.init(
     }
   },
   {
+    hooks:{
+      beforeCreate: async (newApptData) =>{
+        if(!newApptData.title){
+          newApptData.title = `Appointment at ${newApptData.location}`;
+        }
+        return newApptData;
+      }
+    },
     sequelize,
     underscored: true,
     freezeTableName: false,
