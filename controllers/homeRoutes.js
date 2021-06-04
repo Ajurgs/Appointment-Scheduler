@@ -46,7 +46,9 @@ router.get("/account", withAuth, async (req, res) => {
       break;
     }
     default:{
-      res.render("login");
+      res.render("login",{
+        loggedIn: req.session.loggedIn,
+      });
       break;
     }
   }
@@ -54,7 +56,9 @@ router.get("/account", withAuth, async (req, res) => {
 
 router.get("/login", (req, res) => {
   try {
-    res.render("login");
+    res.render("login",{
+      loggedIn: req.session.loggedIn,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -62,7 +66,9 @@ router.get("/login", (req, res) => {
 
 router.get("/signup", (req, res) => {
   try {
-    res.render("signup");
+    res.render("signup",{
+      loggedIn: req.session.loggedIn,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
