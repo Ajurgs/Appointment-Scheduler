@@ -15,7 +15,7 @@ async function getAppointments(){
         console.log(info.event);
       }, 
       timeZone: 'local', 
-      initialView: 'timeGridWeek',
+      initialView: 'dayGridMonth',
       events: formattedData
     });
     calendar.render();
