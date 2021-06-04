@@ -37,6 +37,8 @@ const userSearchFormHandler = async (event) => {
         document.querySelector("#firstName").value = userData.firstName;
         document.querySelector("#lastName").value = userData.lastName;
         document.querySelector("#email-profile").value = userData.email;
+        document.querySelector("#phone-profile").value = userData.phoneNumber;
+        document.querySelector("#userRole").value = userData.roleId;
         document.querySelector("#id").value = userData.id;
       });
     } else {
