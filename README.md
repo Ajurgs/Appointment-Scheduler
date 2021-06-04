@@ -2,12 +2,54 @@
 An open source example project that allows managers, employees, and clients of a company to register appointments on their webpage using the Fullcalendar api package. 
 
 Description
-Users can be assigned different roles, such as, manager, employee, or client. Each user has a different access level which is authenticated using bycrypt. The use can sign-up to create an account
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+Users can be assigned different roles, such as, manager, employee, or client. Each user has a different access level which is authenticated using bycrypt. The user can sign-up to create an account, be assigned a new role by a manager, and edit appointments in the calendar.
 
-Dependencies:
-Sequelize
-Bycrypt
+# Features:
+
+Node.js and Express.js - RESTful API
+- User Table
+ - Role: Manager (Verification), Employee (Verification), Client (Default)
+ - Appointment
+
+Handlebars.js - Engine
+ - Model functions
+
+MySQL and Sequelize ORM - Database
+ - Models
+ - Routing (GET and POST)
+
+Undiscussed Technology
+Nylas Node SDK
+
+MVC Folder Structure
+
+Authentication
+
+Express Sessions
+
+Cookies Usage
+
+Heroku Deployed
+
+# Dependencies:
+bcrypt 5.0.0
+bootstrap 5.0.1
+bootswatch 5.0.1
+connect-session-sequelize 7.1.1 
+dotenv 8.2.0
+express 4.17.1
+express-handlebars 5.2.0 
+express-session 1.17.2
+fullcalendar-scheduler 5.7.0
+handlebars 4.7.6
+jQuery 1.7.4
+moment 2.29.1
+mysql2 2.2.5
+sequelize 6.3.5
+
+# Future Features
+Metrics
+ - Number of Appointments etc.
 
 Visuals
 Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
