@@ -6,7 +6,7 @@ async function getAppointments(){
     const temp = await fetch(`/api/appointment/attending/${empId}`);
     await temp.json().then(data =>{
     data.map(event =>{
-      formattedData.push({id:event.id,title:"test Title",start:event.start,end:event.end})
+      formattedData.push({id:event.id,title:event.title,start:event.start,end:event.end})
     })
 
     var calendarEl =  document.getElementById('calendar'); 
