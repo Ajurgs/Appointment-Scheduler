@@ -1,7 +1,7 @@
 
 const formattedData = [];
 async function getAppointments(){ 
-  const userId = document.querySelector('#userId');
+  const userId = document.querySelector('#userId').value;
 
     const temp = await fetch(`/api/appointment/requester/${userId}`);
     await temp.json().then(data =>{
@@ -11,7 +11,11 @@ async function getAppointments(){
 
     var calendarEl =  document.getElementById('calendar'); 
     var calendar = new FullCalendar.Calendar(calendarEl, { 
-      // schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source',
+      headerToolbar: {
+        right: 'prev next today',
+        center: 'title',
+        left: 'timeGridDay listWeek dayGridMonth'},
+      schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source',
       // schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
       editable: true,
       selectable: true,
