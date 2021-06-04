@@ -1,7 +1,9 @@
+// Main requirements
 const User = require("./users");
 const Role = require("./roles");
 const Appointment = require("./appointment");
 
+// Defining model dependencies
 User.belongsTo(Role, {});
 
 Role.hasOne(User, {
@@ -27,4 +29,5 @@ User.hasOne(Appointment, {
   onDelete: "CASCADE",
 });
 
+// Export each defined table
 module.exports = { User, Role, Appointment };
