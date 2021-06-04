@@ -119,15 +119,13 @@ router.get("/updateUser",withAuth, async (req,res)=>{
 })
 
 
-router.get("/appointment/:id", async (req,res) =>{
-  console.log(req.params.id);
+router.get("/appointment/:id",withAuth, async (req,res) =>{
   try{
     const appointmentData = await Appointment.findByPk(req.params.id);
     if(!appointmentData){
       res.status(404).json({message:"The Id supplied does not exist"});
     }
     const appointment = appointmentData.get({plain:true});
-    console.log(appointment);
     const employeeData = await User.findAll({
       where:{
         roleId:2,

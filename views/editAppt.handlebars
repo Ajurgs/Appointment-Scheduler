@@ -3,24 +3,24 @@
     <div class="card-header">
       <h2>Update Appointment</h2>
     </div>
-    <form id="profile-form" class="card-body d-flex flex-column align-items-center">
+    <form id="appointment-form" class="card-body d-flex flex-column align-items-center">
       <input type='hidden' name='apptId' id='id' value={{appointment.id}} />  
       <div class="d-flex mb-3" >
         <fieldset class="d-flex flex-column" >
-        <label for="firstName" >Title:</label>
-        <input name="firstName" type="text" id="title" value="{{appointment.title}}" />
+        <label for="title" >Title:</label>
+        <input name="title" type="text" id="title" value="{{appointment.title}}" required/>
         </fieldset>
       </div>
       <div class="d-flex mb-3">
         <fieldset class="d-flex flex-column">
         <label for="location" >Location:</label>
-        <input name="location" type="text" id="location" value="{{appointment.location}}"></input>
+        <input name="location" type="text" id="location" value="{{appointment.location}}" required></input>
         </fieldset>
       </div>
       <div class="d-flex mb-3">
         <fieldset class="d-flex flex-column">
         <label for="Employee">Attending Employee:</label>
-        <select name="Employee" id="employee">
+        <select name="Employee" id="employee" required>
             <option value="">Select Employee to Attend</option>
             {{#each employees as |employee|}}
             <option value={{employee.id}}>{{employee.firstName}} {{employee.lastName}}</option>
@@ -31,10 +31,12 @@
       <div>
         <button
           type="submit"
-          id="update-profile-btn"
+          id="update-btn"
       class="btn btn-primary my-3"
         >Update Appointment</button>
       </div>
     </form>
   </section>
 </div>
+
+<script src="/js/editAppt.js"></script>
