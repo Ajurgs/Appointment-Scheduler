@@ -1,14 +1,19 @@
+
+// Table requirements include sequelize from connection.js
+// bycrypt and module for auth
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 const bcrypt = require("bcrypt");
 const { Module } = require("module");
 
+// Use bycrypt to check password
 class User extends Model {
   checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
   }
 }
 
+// Table properties
 User.init(
   {
     id: {
@@ -47,6 +52,8 @@ User.init(
       type: DataTypes.STRING,
     },
   },
+
+  // Hooks for new user information inputs
   {
     hooks: {
       beforeCreate: async (newUserData) => {
@@ -69,4 +76,5 @@ User.init(
   }
 );
 
+// Export User information
 module.exports = User;

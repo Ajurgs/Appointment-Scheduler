@@ -1,8 +1,10 @@
+// Table requirements include sequelize from connection.js
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
 class Appointment extends Model {}
 
+// Appointment table properties
 Appointment.init(
   {
     id: {
@@ -39,4 +41,5 @@ Appointment.init(
   }
 );
 
+// Export table Appointment
 module.exports = Appointment;
