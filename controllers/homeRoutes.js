@@ -73,4 +73,24 @@ router.get("/signup", (req, res) => {
     res.status(500).json(err);
   }
 });
+
+router.get("/update",withAuth, async (req,res)=>{
+  try {
+    const userData = await User.findByPk(req.session.userId,{
+      attributes: {
+          exclude:["password","roleId", "createdAt","updatedAt"],
+      }
+    });
+    const user = userData.get({plain:true});
+    res.render("update",{
+      user,
+      loggedIn: req.session.loggedIn,
+    })
+  } catch (err) {
+    res.status(500).json(err);
+  }
+})
+
+
+
 module.exports = router;

@@ -1,4 +1,4 @@
-<script src="/js/employeeCalendar.js"></script>
+<script src="/js/customerCalendar.js"></script>
 <input type='hidden' id='userId' name='userId' value='{{user.id}}'/>
 <div class="container">
   <div class="row my-5">
@@ -14,8 +14,8 @@
 
         </div>
             <div>
-                <button type="submit" id="update-profile-btn" class="btn btn-primary my-3">Update account information</button>
-                <button type="submit" id="request-appt-btn" class="btn btn-primary my-3">Request new appointment</button>
+                <a href="/update" class="btn btn-primary my-3">Update account information</a>
+                <a href="/createappt" class="btn btn-primary my-3">Request new appointment</a>
             </div>
       </div>
         <div class="col" id="calendar"></div>
