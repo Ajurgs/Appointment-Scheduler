@@ -9,7 +9,7 @@ const login = async (event) => {
       headers: { "Content-Type": "application/json" },
     });
     if (response.ok) {
-      document.location.replace("/");
+      document.location.replace("/account");
     } else {
       alert("Failed to log in");
     }
