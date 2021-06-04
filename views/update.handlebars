@@ -1,0 +1,49 @@
+<div class="container">
+  <section class="card my-3" style="max-width:800px">
+    <div class="card-header">
+      <h2>Update User Profile</h2>
+    </div>
+    <form id="profile-form" class="card-body d-flex flex-column align-items-center">
+      <input type='hidden' name='userId' id='id' value={{user.id}} />  
+      <div class="d-flex mb-3" >
+        <fieldset class="d-flex flex-column" >
+        <label for="firstName" >First Name:</label>
+        <input name="firstName" type="text" id="firstName" value="{{user.firstName}}" />
+        </fieldset>
+      </div>
+      <div class="d-flex mb-3">
+        <fieldset class="d-flex flex-column">
+        <label for="lastName" >Last Name:</label>
+        <input name="lastName" type="text" id="lastName" value="{{user.lastName}}"></input>
+        </fieldset>
+      </div>
+      <div class="d-flex mb-3">
+        <fieldset class="d-flex flex-column">
+        <label for="email-profile" >Email:</label>
+        <input name="email-profile" type="email" id="email-profile" value={{user.email}}></input>
+        </fieldset>
+      </div>
+      <div class="d-flex mb-3">
+        <fieldset class="d-flex flex-column">
+        <label for="phone-profile">Phone Number:</label>
+        <input name="phone-profile" type="phone" id="phone-profile" value={{user.phoneNumber}}></input>
+        </fieldset>
+      </div>
+      <div class="d-flex mb-3">
+        <fieldset class="d-flex flex-column">
+        <label for="address">Address:</label>
+        <input name="address" type="phone" id="address" value="{{user.address}}"></input>
+        </fieldset>
+      </div>
+      <div>
+        <button
+          type="submit"
+          id="update-profile-btn"
+      class="btn btn-primary my-3"
+        >Update User</button>
+      </div>
+    </form>
+  </section>
+</div>
+
+<script src="/js/updateUser.js"></script>

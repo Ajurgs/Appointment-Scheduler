@@ -78,5 +78,35 @@ router.get("/signup", (req, res) => {
   }
 });
 
+
+router.get("/update",withAuth, async (req,res)=>{
+  try {
+    const userData = await User.findByPk(req.session.userId,{
+      attributes: {
+          exclude:["password","roleId", "createdAt","updatedAt"],
+      }
+    });
+    const user = userData.get({plain:true});
+    res.render("update",{
+      user,
+      loggedIn: req.session.loggedIn,
+    })
+  } catch (err) {
+    res.status(500).json(err);
+  }
+})
+
+router.get("/createappt",withAuth, async (req,res) =>{
+  try {
+    res.render("createAppt",{
+      id:req.session.userId,
+      loggedIn: req.session.loggedIn,
+    })
+  } catch (err) {
+    res.status(500).json(err);
+  }
+})
+
 // Export session information
+
 module.exports = router;

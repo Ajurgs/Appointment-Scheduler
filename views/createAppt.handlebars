@@ -1,0 +1,24 @@
+<div class="container">
+
+    <form id="new-appointment" class="card my-3">  
+        <div class="card-header">Request New Appointment</div>
+        <div class="card-body">
+            <input type="hidden"  id="id" value="{{id}}">
+            <fieldset class=" mb-3 d-flex flex-column">
+                <label for="date"> Request Date & Time:</label> 
+                <input type="datetime-local" name="date" id="dateTime" value="" step="3600" required>Times must be on the hour (end in :00)</input>
+            </fieldset>
+            <fieldset class=" mb-3 d-flex flex-column">
+                <label for="location"> Location:</label> 
+                <input type="location" name="location" id="location" value="" required>
+            </fieldset>
+
+            <div class="mb-3">
+                <button class="btn btn-secondary" type="submit">Request</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script src="/js/moment.js"></script>
+<script src="/js/createAppt.js"></script>
