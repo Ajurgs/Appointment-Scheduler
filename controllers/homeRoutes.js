@@ -16,21 +16,37 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/account", withAuth, async (req, res) => {
+  const userData = await User.findByPk(req.session.userId,{
+    include:[{model:Role}],
+    attributes: {exclude:["password","roleId", "createdAt","updatedAt"]},
+  })
+  const user = userData.get({plain:true});
+  console.log(user);
   // send to user accounts
-  switch(req.session.role){
+  switch(user.role.id){
     case 1:{
-      res.render("customerAccount");
+      res.render("customerAccount",{
+        user,
+        loggedIn: req.session.loggedIn,
+      });
       break;
     }
     case 2:{
-      res.render("employeeAccount");
+      res.render("employeeAccount",{
+        user,
+        loggedIn: req.session.loggedIn,
+      });
       break;
     }
     case 3:{
-      res.render("managerAccount");
+      res.render("managerAccount",{
+        user,
+        loggedIn: req.session.loggedIn,
+      });
       break;
     }
     default:{
+      res.render("login");
       break;
     }
   }
