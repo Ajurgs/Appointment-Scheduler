@@ -7,6 +7,9 @@ require("dotenv").config();
 const Sequelize = require("sequelize");
 
 // Establish development session
+if (process.env.JAWSDB_URL) {
+  sequelize = new Sequelize(process.env.JAWSDB_URL);
+} else {
 const sequelize = process.env.appointment_scheduler
   ? new Sequelize(process.env.appointment_scheduler)
   : new Sequelize(
@@ -21,6 +24,6 @@ const sequelize = process.env.appointment_scheduler
         },
       }
     );
-
+}
     // Export sequelize session
 module.exports = sequelize;
