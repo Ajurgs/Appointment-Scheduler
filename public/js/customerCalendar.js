@@ -11,8 +11,11 @@ async function getAppointments(){
 
     var calendarEl =  document.getElementById('calendar'); 
     var calendar = new FullCalendar.Calendar(calendarEl, { 
-      schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source',
-      // plugins: [ 'interaction'], 
+      // schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source',
+      // schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
+      editable: true,
+      selectable: true,
+
       eventClick: function (info) {
         console.log(info.event);
       }, 
