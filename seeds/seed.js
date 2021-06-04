@@ -15,7 +15,10 @@ const seedDatabase = async () => {
     returning: true,
   });
   console.log("------- Seeding Appointments -------");
-  await Appointment.bulkCreate(appointmentData);
+  await Appointment.bulkCreate(appointmentData,{
+    individualHooks:true,
+    returning:true,
+  });
   console.log("------ Database Seeded ------");
   process.exit(0);
 };

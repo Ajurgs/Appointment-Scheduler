@@ -4,7 +4,7 @@ async function getAppointments(){
     const temp = await fetch("/api/appointment/");
     await temp.json().then(data =>{
     data.map(event =>{
-      formattedData.push({id:event.id,title:"test Title",start:event.start,end:event.end})
+      formattedData.push({id:event.id,title:event.title,start:event.start,end:event.end})
     })
 
     var calendarEl =  document.getElementById('calendar'); 
@@ -16,7 +16,8 @@ async function getAppointments(){
         center: 'title',
         left: 'timeGridDay listWeek dayGridMonth'}, 
       eventClick: function (info) {
-        console.log(info.event);
+        let id = info.event._def.publicId;
+        document.location.replace(`/appointment/${id}`);
       }, 
       timeZone: 'local', 
       initialView: 'dayGridMonth',
