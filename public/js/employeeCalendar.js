@@ -1,7 +1,7 @@
 
 const formattedData = [];
 async function getAppointments(){ 
-  const empId = document.querySelector('#userId');
+  const empId = document.querySelector('#userId').value;
   console.log(empId);
     const temp = await fetch(`/api/appointment/attending/${empId}`);
     await temp.json().then(data =>{
@@ -10,7 +10,11 @@ async function getAppointments(){
     })
 
     var calendarEl =  document.getElementById('calendar'); 
-    var calendar = new FullCalendar.Calendar(calendarEl, { 
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      headerToolbar: {
+      right: 'prev next today',
+      center: 'title',
+      left: 'timeGridDay listWeek dayGridMonth'},
       schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source',
       // plugins: [ 'interaction'], 
       eventClick: function (info) {
@@ -25,13 +29,5 @@ async function getAppointments(){
 }
 getAppointments();
 
-
-document
-.querySelector('#profile-form')
-.addEventListener('submit', profileFormHandler);
-
-document
-.querySelector('#search-user-form')
-.addEventListener('submit', userSearchFormHandler);
 
   
