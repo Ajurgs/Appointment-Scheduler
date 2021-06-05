@@ -40,10 +40,15 @@
       {{! </div> }}
 
     </div>
+    {{#unless loggedIn}}
     <aside class="col-3 fixed-bottom">
-      <button type="button" class="btn btn-lg signUp">New to the Calendar? Sign
+      <button type="button" id="signup-btn"class="btn btn-lg signUp">New to the Calendar? Sign
         Up</button>
     </aside>
+    {{/unless}}
   </main>
 
 </body>
+{{#unless loggedIn}}
+<script src="/js/homepage.js"></script>
+{{/unless}}
