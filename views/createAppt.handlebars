@@ -1,7 +1,10 @@
 <div class="container">
 
     <form id="new-appointment" class="card my-3">  
-        <div class="card-header">Request New Appointment</div>
+        <div class="card-header d-flex justify-content-between">
+            <h2>Request New Appointment</h2>
+            <h2><a href="/account" style="text-decoration: none;">X</a></h2> 
+        </div>
         <div class="card-body">
             <input type="hidden"  id="id" value="{{id}}">
             <fieldset class=" mb-3 d-flex flex-column">

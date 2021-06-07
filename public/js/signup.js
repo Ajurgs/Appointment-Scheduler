@@ -27,7 +27,7 @@ const signupFormHandler = async (event) => {
           body: JSON.stringify({ email, password, firstName, lastName }),
           headers: { "Content-Type": "application/json" },
         });
-        document.location.replace("/");
+        document.location.replace("/account");
       } else {
         alert("failed to sign up");
       }
