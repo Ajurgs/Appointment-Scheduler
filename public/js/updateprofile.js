@@ -16,7 +16,7 @@ const profileFormHandler = async (event) => {
             body: JSON.stringify({ email, firstName, lastName, phoneNumber, roleId }),
             headers: { "Content-Type": "application/json" },
           });
-          document.location.replace("/");
+          document.location.replace("/account");
         } else {
           alert("failed to update");
         }
