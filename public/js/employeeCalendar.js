@@ -16,7 +16,6 @@ async function getAppointments(){
       center: 'title',
       left: 'timeGridDay listWeek dayGridMonth'},
       schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source',
-      themeSystem: 'bootstrap',
       eventClick: function (info) {
         console.log(info.event);
       }, 
