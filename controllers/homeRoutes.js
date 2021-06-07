@@ -110,7 +110,7 @@ router.get("/createappt",withAuth, async (req,res) =>{
 
 router.get("/updateUser",withAuth, async (req,res)=>{
   try {
-    res.render("userProfile",{
+    res.render("userprofile",{
       loggedIn: req.session.loggedIn,
     })
   } catch (err) {
